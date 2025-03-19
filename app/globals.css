@@ -7,7 +7,7 @@
 }
 
 
-/* @custom-variant dark (&:where(.dark, .dark *)); */
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   --color-white: #ffffff;
@@ -25,18 +25,6 @@
   --color-dark-tertiary: #3b3d40;
   --color-blue-primary: #0275ff;
   --color-stroke-dark: #2d3133;
-}
-
-
-html,
-body,
-#root,
-.app {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  @apply text-sm bg-gray-500 text-gray-900;
 }
 
 /* Apply custom colors using CSS variables */
@@ -57,4 +45,15 @@ body,
 }
 .border-stroke-dark {
   border-color: var(--color-stroke-dark);
+}
+
+/* Base styles */
+html,
+body,
+#root,
+.app {
+  height: 100%;
+  width: 100%;
+  @apply text-sm;
+  @apply bg-white dark:bg-black; /* Use Tailwind's dark mode */
 }
