@@ -15,7 +15,7 @@ const Sidebar = () => {
     <div className={sidebarClassName}>
       <div className="flex h-[100%] w-full flex-col justify-start">
         {/* TOP LOGO*/}
-        <div className="dark:bg-dark-bg z-50 flex min-h-[56px] items-center justify-between bg-white px-6 pt-3">
+        <div className="dark:bg-black z-50 flex min-h-[56px] items-center justify-between px-6 pt-3">
           <div className="text-xl font-bold text-gray-800 dark:text-white">
             MYLIST
           </div>
