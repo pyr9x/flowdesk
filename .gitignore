@@ -10,7 +10,7 @@ node_modules/
 !.yarn/releases
 !.yarn/versions
 /package-lock.json
-
+client/node_modules/@next/swc-win32-x64-msvc/next-swc.win32-x64-msvc.node
 # testing
 /coverage
 
