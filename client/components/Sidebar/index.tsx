@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
+import { useGetProjectQuery } from "@/redux/state/api";
 import { setIsSidebarCollapsed } from "@/redux/state/sidebar-slice";
 import { useAppDispatch, useAppSelector } from "@/redux/store";
 import {
@@ -31,15 +32,15 @@ const Sidebar = () => {
   const [showProjects, setShowProjects] = useState(true);
   const [showPriority, setShowPriority] = useState(true);
 
+  const { data: projects } = useGetProjectQuery();
   const dispatch = useAppDispatch();
   const isSidebarCollapsed = useAppSelector(
     (state) => state.global.isSidebarCollasped,
   );
 
   const sidebarClassName = `fixed flex flex-col h-full justify-between shadow-xl transition-all duration-300 z-40 dark:bg-black bg-white overflow-y-auto hide-scrollbar ${
-  isSidebarCollapsed ? "w-0 hidden" : "w-64"
-}`;
-
+    isSidebarCollapsed ? "w-0 hidden" : "w-64"
+  }`;
 
   return (
     <div className={sidebarClassName}>
@@ -97,6 +98,15 @@ const Sidebar = () => {
         </button>
 
         {/* PROJECTS LIST */}
+        {showProjects &&
+          projects?.map((project) => (
+            <SidebarLink
+              key={project.id}
+              icon={Briefcase}
+              label={project.name}
+               href={`/projects/${project.id}`}
+            />
+          ))};
 
         {/* PRIORITIES LINKS */}
         <button
